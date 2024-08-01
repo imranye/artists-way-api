@@ -28,16 +28,16 @@
      res.json(weekExercises);
    });
 
-   app.get('/exercises/category/:category', (req, res) => {
-     const category = req.params.category;
-     const categoryExercises = exercises.filter(ex => ex.Category === category);
-     res.json(categoryExercises);
+   app.get('/exercises/type/:type', (req, res) => {
+     const type = req.params.type;
+     const typeExercises = exercises.filter(ex => ex.Type === type);
+     res.json(typeExercises);
    });
 
-   app.get('/exercises/week/:week/category/:category', (req, res) => {
+   app.get('/exercises/week/:week/type/:type', (req, res) => {
      const week = req.params.week;
-     const category = req.params.category;
-     const filteredExercises = exercises.filter(ex => ex.Week === week && ex.Category === category);
+     const type = req.params.type;
+     const filteredExercises = exercises.filter(ex => ex.Week === week && ex.Type === type);
      res.json(filteredExercises);
    });
 
