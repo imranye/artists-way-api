@@ -47,6 +47,16 @@
      res.json(randomExercise);
    });
 
+   app.get('/exercises/search/:keyword', (req, res) => {
+     const keyword = req.params.keyword.toLowerCase();
+     const filteredExercises = exercises.filter(ex => 
+       ex.Name.toLowerCase().includes(keyword) || 
+       ex.Description.toLowerCase().includes(keyword) || 
+       ex.Tags.toLowerCase().includes(keyword)
+     );
+     res.json(filteredExercises);
+   });
+
    app.listen(port, () => {
      console.log(`Server is running on http://localhost:${port}`);
    });
