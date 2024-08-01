@@ -41,6 +41,12 @@
      res.json(filteredExercises);
    });
 
+   app.get('/exercises/random', (req, res) => {
+     const randomIndex = Math.floor(Math.random() * exercises.length);
+     const randomExercise = exercises[randomIndex];
+     res.json(randomExercise);
+   });
+
    app.listen(port, () => {
      console.log(`Server is running on http://localhost:${port}`);
    });
